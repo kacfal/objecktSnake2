@@ -28,7 +28,7 @@ class SnakePart():
 
 
 class Snake():
-    def __init__(self, game, lead_x, lead_y, color):
+    def __init__(self, game, lead_x, lead_y, color, head):
         self.body = []
         self.snake_length = 0
         self.game = game
@@ -38,7 +38,7 @@ class Snake():
         self.y_change = 0
         self.lead_x = lead_x*BLOCK_SIZE
         self.lead_y = lead_y*BLOCK_SIZE
-        self.image = pg.image.load("Snake.png")
+        self.image = pg.image.load(head)
         self.head = pg.transform.rotate(self.image, 270)
 
     def key(self, direction):
@@ -90,12 +90,12 @@ class Snake():
 
         snakeHead = []
         if self.lead_x < 0:
-            self.lead_x = DISPLAY_WIDTH-20
-        elif self.lead_x > DISPLAY_WIDTH-20:
+            self.lead_x = DISPLAY_WIDTH
+        elif self.lead_x > DISPLAY_WIDTH-BLOCK_SIZE:
             self.lead_x = 0
         if self.lead_y < 0:
-            self.lead_y = DISPLAY_HEIGHT-20
-        elif self.lead_y > DISPLAY_HEIGHT-20:
+            self.lead_y = DISPLAY_HEIGHT
+        elif self.lead_y > DISPLAY_HEIGHT-BLOCK_SIZE:
             self.lead_y = 0
         snakeHead.append(self.lead_x)
         snakeHead.append(self.lead_y)

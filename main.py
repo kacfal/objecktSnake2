@@ -24,8 +24,8 @@ class Game():
         self.fruit = Fruit(self, 120, 0, png)
         self.fruit2 = Fruit(self, 40, 40, png)
         self.fruit3 = Fruit(self, 40, 120, png)
-        self.snake = Snake(self, 10, 10, GREEN)
-        self.snake2 = Snake(self, 4, 4, RED)
+        self.snake = Snake(self, 10, 10, GREEN, "snake.png")
+        self.snake2 = Snake(self, 4, 4, RED,"snake.png")
 
     @staticmethod
     def quit():
@@ -39,6 +39,7 @@ class Game():
             # self.events1()
             self.update()
             self.draw()
+        self.new("apple.png")
 
     def update(self):
         self.all_sprites.update()

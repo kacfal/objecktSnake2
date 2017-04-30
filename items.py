@@ -9,8 +9,8 @@ class Fruit(pg.sprite.Sprite):
         self.groups = game.all_sprites
         pg.sprite.Sprite.__init__(self, self.groups)
         self.png = png
-        self.x = round(x)
-        self.y = round(y)
+        self.x = x
+        self.y = y
         self.image = pg.image.load(png)
         self.rect = self.image.get_rect()
 
@@ -32,10 +32,6 @@ class Fruit(pg.sprite.Sprite):
     #     #print(self.x," ",self.y)
     #     self.random()
     #     screen.blit(self.image, (self.x, self.y))
-
-
-
-
 
     def update(self):
         self.rect.x = self.x
