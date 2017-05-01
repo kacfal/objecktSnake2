@@ -33,13 +33,14 @@ class Game():
         quit()
 
     def run(self):
+        self.new("apple.png")
         self.playing = True
         while self.playing:
             self.events()
             # self.events1()
             self.update()
             self.draw()
-        self.new("apple.png")
+        self.game_over()
 
     def update(self):
         self.all_sprites.update()
@@ -90,6 +91,22 @@ class Game():
                     self.snake2.key('UP')
                 if event.key == pg.K_s:
                     self.snake2.key('DOWN')
+
+    def game_over(self):
+        self.message_to_screen("Game over", RED, -50, size="large")
+        self.message_to_screen("Press C to play again or Q to quit", BLACK, 50, size="medium")
+        pg.display.update()
+        while True:
+
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    self.quit()
+
+                if event.type == pg.KEYDOWN:
+                    if event.key == pg.K_q:
+                        self.quit()
+                    if event.key == pg.K_c:
+                        self.run()
 
     # def events1(self):
     #     for event in pg.event.get():
@@ -150,8 +167,6 @@ class Game():
                     self.quit()
                 if event.key == pg.K_c:
                     self.run()
-
-
 
 g = Game()
 g.new("apple.png")

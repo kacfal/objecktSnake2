@@ -30,7 +30,7 @@ class SnakePart():
 class Snake():
     def __init__(self, game, lead_x, lead_y, color, head):
         self.body = []
-        self.snake_length = 0
+        self.snake_length = 10
         self.game = game
         self.direction = 'RIGHT'
         self.color = color
@@ -111,6 +111,8 @@ class Snake():
     def collide(self, snakeHead):
         for eachSegment in self.body[:-1]:
             if eachSegment == snakeHead:
+
                 self.game.playing = False
+
 
 
